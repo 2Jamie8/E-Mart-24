@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이마트24</title>
+    <link href="css/meun.css" rel="stylesheet" />
+    <script>
+        window.onload = function(){
+            let meun_open = document.getElementsByClassName('meun_open')[0];
+            let meun_nav = document.getElementById('meun_nav')
+            let meun_close = document.getElementsByClassName('meun_close')[0];
+
+            meun_open.onclick = function(){
+                if(meun_nav.style.display = 'none'){
+                    meun_nav.style.display = 'block';
+                }
+            }
+            meun_close.onclick = function(){
+                if(meun_nav.style.display = 'block'){
+                    meun_nav.style.display = 'none';
+                }
+            }
+//------------------------------------------------------------------
+            let depth01 = document.getElementsByClassName('depth01');
+            let depth02 = document.getElementsByClassName('depth02');
+
+            for(let i = 0; i < depth02.length; i++){
+                console.log(depth02[i]);
+                depth02[i].style.display ='none';
+            }
+        
+            for(let i = 0; i < depth01.length; i++){
+                console.log(depth01[i].children);
+
+                let depth02Children = depth01[i].children[1];
+
+                depth01[i].onclick = function(){
+                    if(depth02Children.style.display == 'none'){
+                        depth02Children.style.display = 'block';
+
+                        depth01[i].children[0].style.color = '#F9BB00'
+                    }
+                    else{depth02Children.style.display = 'none'
+                    depth01[i].children[0].style.color = '#333'}
+                }
+            }
+//------------------------------------------------------------------
+            let cont01Text = document.getElementsByClassName('cont01_text02')[0];
+            let menuBtn = cont01Text.getElementsByTagName('p');
+            let cont01 = document.getElementsByClassName('cont01')[0];
+            let cont01List = cont01.getElementsByClassName('list');
+
+            for(let i = 0; i < menuBtn.length; i++){
+                menuBtn[i].onclick = function(){
+                    cont01List[0].classList.remove('on');
+                    cont01List[1].classList.remove('on');
+                    cont01List[2].classList.remove('on');
+
+                    cont01List[i].classList.add('on');
+
+                    menuBtn[0].classList.remove('on');
+                    menuBtn[1].classList.remove('on');
+                    menuBtn[2].classList.remove('on');
+
+                    menuBtn[i].classList.add('on');
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="inner">
+            <h1>
+                <a href="#">
+                    <img src="img/logo.png" alt="로고"/>
+                </a>
+            </h1>
+            <div class="meun_open">
+                <img src="img/menuBar.png" alt="메뉴"/>
+            </div>
+            <nav id="meun_nav">
+                <div class="inner">
+                    <div class="meun_logo">
+                        <img src="img/meunLogo.png" alt="메뉴로고"/>
+                    </div>
+                    <div class="meun_close">
+                        <img src="img/meunClose.png" alt="메뉴닫기"/>
+                    </div>
+                </div> 
+                <ul>
+                    <li class="depth01">
+                        <div class="meun_img">
+                            <img src="img/meun상품.png" alt="상품"/>
+                            <a href="#">상품</a>
+                            <figure>
+                                <img src="img/meunicon.png" alt=""/>
+                            </figure>
+                        </div>
+                        <ul class="depth02">
+                            <li><a href="#">행사상품</a></li>
+                            <li><a href="#">차별화 상품</a></li>
+                            <li><a href="#">Fresh Food</a></li>
+                        </ul>
+                    </li>
+                    <li class="depth01">
+                        <div class="meun_img">
+                            <img src="img/meun매장찾기.png" alt="매장찾기"/>
+                            <a href="#">매장찾기</a>
+                            <figure>
+                                <img src="img/meunicon.png" alt=""/>
+                            </figure>
+                        </div>
+                        <ul class="depth02">
+                            <li><a href="#">매장찾기</a></li>
+                            <li><a href="#">3D 매장 체험</a></li>
+                        </ul>
+                    </li>
+                    <li class="depth01">
+                        <div class="meun_img">
+                            <img src="img/meun서비스.png" alt="서비스"/>
+                            <a href="#">서비스</a>
+                            <figure>
+                                <img src="img/meunicon.png" alt=""/>
+                            </figure>
+                        </div>
+                        <ul class="depth02">
+                            <li><a href="#">APP 서비스</a></li>
+                            <li><a href="#">생활 서비스</a></li>
+                            <li><a href="#">제휴 서비스</a></li>
+                        </ul>
+                    </li>
+                    <li class="depth01">
+                        <div class="meun_img">
+                            <img src="img/meun이벤트.png" alt="이벤트"/>
+                            <a href="#">이벤트</a>
+                            <figure>
+                                <img src="img/meunicon.png" alt=""/>
+                            </figure>
+                        </div>
+                        <ul class="depth02">
+                            <li><a href="#">진행중인 이벤트</a></li>
+                            <li><a href="#">종료된 이벤트</a></li>
+                        </ul>
+                    </li>
+                    <li class="depth01">
+                        <div class="meun_img">
+                            <img src="img/meun창업안내.png" alt="창업안내"/>
+                            <a href="#">창업안내</a>
+                            <figure>
+                                <img src="img/meunicon.png" alt=""/>
+                            </figure>
+                        </div>
+                        <ul class="depth02">
+                            <li><a href="#">이마트24 특징</a></li>
+                            <li><a href="#">창업 가이드</a></li>
+                            <li><a href="#">창업 설명회</a></li>
+                            <li><a href="#">창업 성공기</a></li>
+                            <li><a href="#">창업 상담</a></li>
+                            <li><a href="#">추천 매장 소개</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="item">
+                    <div class="list">
+                        <a href="#">
+                            <p>고객센터</p>
+                            <span>›</span>
+                        </a>
+                    </div>
+                    <div class="list">
+                        <a href="#">
+                            <p>이마트24 소개</p>
+                            <span>›</span>
+                        </a>
+                    </div>
+                    <div class="list">
+                        <a href="#">
+                            <p>채용안내</p>
+                            <span>›</span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="main_visual">
+            <figure>
+                <img src="img/main_visual01.png" alt="main_visual" />
+            </figure>
+        </div>
+        <section class="cont01">
+            <div class="cont01_text01">
+                <h2>4월 행사 상품</h2>
+                <div>
+                    <p>전체보기</p>
+                    <img src="img/more.png" alt=""/>
+                </div>
+            </div>
+            <div class="cont01_text02">
+                <p class="on">1+1</p>
+                <p>2+1</p>
+                <p>신상품</p>
+            </div>
+            <div class="list on">
+                <div class="item">
+                    <figure>
+                        <img src="img/1+1(01).png" alt=""/>
+                        <span>1+1</span>
+                    </figure>
+                    <div>
+                        <p>오션스프레이)스파클링피치345ml</p>
+                        <strong>1,200원</strong>
+                    </div>
+                </div>
+                <div class="item">
+                    <figure>
+                        <img src="img/1+1(02).png" alt=""/>
+                        <span>1+1</span>
+                    </figure>
+                    <div>
+                        <p>페브리즈)다우니향용기370ml(New)</p>
+                        <strong>9,800원</strong>
+                    </div>
+                </div>
+            </div>
+<!-- ---------------------------------------------- -->
+            <div class="list">
+                <div class="item">
+                    <figure>
+                        <img src="img/2+1(01).png" alt=""/>
+                        <span>2+1</span>
+                    </figure>
+                    <div>
+                        <p>롯데)허쉬쿠키앤초코40g</p>
+                        <strong>1,600원</strong>
+                    </div>
+                </div>
+                <div class="item">
+                    <figure>
+                        <img src="img/2+1(02).png" alt=""/>
+                        <span>2+1</span>
+                    </figure>
+                    <div>
+                        <p>허쉬)프레첼밀크120g</p>
+                        <strong>6,500원</strong>
+                    </div>
+                </div>
+            </div>
+<!-- ---------------------------------------------- -->
+            <div class="list">
+                <div class="item">
+                    <figure>
+                        <img src="img/신상품(01).png" alt=""/>
+                        <span>NEW</span>
+                    </figure>
+                    <div>
+                        <p>갸스비)스프레이200ml_매트&하드</p>
+                        <strong>7,200원</strong>
+                    </div>
+                </div>
+                <div class="item">
+                    <figure>
+                        <img src="img/신상품(02).png" alt=""/>
+                        <span>NEW</span>
+                    </figure>
+                    <div>
+                        <p>cj)육공육통삽겹바베큐갈릭&바질300g</p>
+                        <strong>8,900원</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="cont02">
+            <h2>ONLY 이마트24</h2>
+            <div class="list">
+                <div class="item">
+                    <figure>
+                        <img src="img/아임e01.png" alt=""/>
+                    </figure>
+                    <div>
+                        <img src="img/아임e02.png" alt=""/>
+                        <p>아임이</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <figure>
+                        <img src="img/Fresh food01.png" alt=""/>
+                    </figure>
+                    <div>
+                        <img src="img/Fresh-Food02.png" alt=""/>
+                        <p>Fresh food</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="cont03">
+            <div class="inner">
+                <h2>창업 안내</h2>
+                <div class="list">
+                    <div class="item">
+                        <div>
+                            <h3>창업 가이드</h3>
+                            <p>이마트24는 경영주님과<br />협력적 가치를 공유합니다.</p>
+                        </div>
+                        <figure>
+                            <img src="img/창업안내01.png" alt=""/>
+                        </figure>
+                    </div>
+                    <div class="item">
+                        <div>
+                            <h3>창업 설명회</h3>
+                            <p>경영주와 함께 하는<br />창업 설명회를 신청하세요.</p>
+                        </div>
+                        <figure>
+                            <img src="img/창업안내02.png" alt=""/>
+                        </figure>
+                    </div>
+                    <div class="item">
+                        <div>
+                            <h3>창업 상담</h3>
+                            <p>창업 전문 컨설턴트의<br />상담을 받아보세요.</p>
+                        </div>
+                        <figure>
+                            <img src="img/창업안내03.png" alt=""/>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="cont04">
+            <h2>매장찾기</h2>
+            <div class="search">
+                <p>매장명을 검색해주세요</p>
+                <img src="img/searchYellow.png" alt=""/>
+            </div>
+            <div class="word">
+                <p>24시간</p>
+                <p>택배</p>
+                <p>ATM</p>
+                <p>와인</p>
+            </div>
+        </section>
+        <section class="cont05">
+            <div class="inner">
+                <figure>
+                    <img src="img/appIconMain.png" alt=""/>
+                </figure>
+                <p>"놀아 버는" 편의점<br/>지구에 없던 FUN의점</p>
+            </div>
+        </section>
+        <section class="cont06">
+            <h2>이마트24 STORY</h2>
+            <div class="list">
+                <div class="item">
+                    <figure>
+                        <img src="img/Instaram.png" alt=""/>
+                    </figure>
+                    <div>
+                        <figure>
+                            <img src="img/instagram.png" alt=""/>
+                            <p>INSTAGRAM</p>
+                        </figure>
+                        <p>👧💼 : 이마트24 알바생 민지(MZ)가 소개하는#인마이편의점백</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <figure>
+                        <img src="img/Youyube.png" alt=""/>
+                    </figure>
+                    <div>
+                        <figure>
+                            <img src="img/youtube.png" alt=""/>
+                            <p>YOUTUBE</p>
+                        </figure>
+                        <p>인마이편의점백 💼 민지(MZ)의 하루식단 #쇼츠 #short</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="cont07">
+            <div class="list">
+                <div class="item">
+                    <div class="text01">
+                        <h3>공지사항</h3>
+                        <div>
+                            <p>전체보기</p>
+                            <img src="img/more.png" alt=""/>
+                        </div>
+                    </div>
+                    <div class="text02">
+                        <p>2022년(제 17기) 결산공고</p>
+                        <p>2023.03.28</p>
+                    </div>
+                    <div class="text02">
+                        <p>개인정보처리방침 개정 안내(2023.02.21)</p>
+                        <p>2023.02.14</p>
+                    </div>
+                    <div class="text02">
+                        <p>기준일 설정 공고</p>
+                        <p>2022.12.16</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="text01">
+                        <h3>보도자료</h3>
+                        <div>
+                            <p>전체보기</p>
+                            <img src="img/more.png" alt=""/>
+                        </div>
+                    </div>
+                    <div class="text02">
+                        <p>이마트24, 대한민국 편의점 최초 싱가포르 진출!</p>
+                        <p>2022.12.23</p>
+                    </div>
+                    <div class="text02">
+                        <p>이마트24, 혁신적인 모바일앱 우수성 입증! `스마트앱어워드 2022` 종합쇼핑 부문 대상 수상!</p>
+                        <p>2022.12.21</p>
+                    </div>
+                    <div class="text02">
+                        <p>이마트24 X bhc, `안 사면 손해` 파티팩 한정 판매</p>
+                        <p>2022.12.20</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="inner">
+            <div class="list">
+                <div class="item01">
+                    <h4>개인정보 처리방침</h4>
+                    <p>이용약관</p>
+                    <p>고객센터</p>
+                    <p>CSR경영</p>
+                    <p>사이트맵</p>
+                    <p>패밀리사이트 +</p>
+                </div>
+                <div class="item02">
+                    <h4>(주) 이마트24</h4>
+                    <div>
+                        <figure>
+                            <img src="img/youtube.png" alt=""/>
+                        </figure>
+                        <figure>
+                            <img src="img/instagram.png" alt=""/>
+                        </figure>
+                        <figure>
+                            <img src="img/facebook.png" alt=""/>
+                        </figure>
+                        <figure>
+                            <img src="img/tiktok.png" alt=""/>
+                        </figure>    
+                    </div>
+                </div>
+                <div class="item03">
+                    <p>대표이사 : 김장욱</p>
+                    <p>사업자등록번호 : 105-86-92454</p>
+                    <p>서울특별시 성동구 성수동 2가 281-4</p>
+                    <p>푸조비즈타워 / 고객센터: 02-6916-1500</p>
+                    <p>Fax: 02-6916-1430</p>
+                    <p>COPYRIGHT (C) EMART24.ALL RIGHT RESERVED</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
